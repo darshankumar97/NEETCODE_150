@@ -27,7 +27,66 @@ Call twoSum(nums, target).
 
 Print result using Arrays.toString().*/
 
+// approach 1: Brute Force
 
+// Steps:
+
+// Loop through each element in the array (index i).
+
+// For each element, loop again through the rest of the array (index j > i).
+
+// Check if nums[i] + nums[j] == target.
+
+// If yes, return [i, j].
+
+// If no pair found, return [-1, -1].
+
+// Time Complexity: O(n²)
+// Space Complexity: O(1)
+
+// 🔹 Approach 2: Sorting + Two Pointers
+
+// (⚠️ But note: indices get messed up, so usually not preferred for LeetCode 1 unless we store original indices.)
+
+// Steps:
+
+// Pair each element with its index.
+
+// Sort the array based on values.
+
+// Use two pointers (left = 0, right = n-1).
+
+// While left < right:
+
+// If nums[left] + nums[right] == target → return their original indices.
+
+// If sum < target → move left++.
+
+// If sum > target → move right--.
+
+// Time Complexity: O(n log n) (due to sorting)
+// Space Complexity: O(n) (to keep original indices)
+
+// 🔹 Approach 3: HashMap (Best / Optimized)
+
+// Steps:
+
+// Create a HashMap (value → index).
+
+// Iterate through array with index i.
+
+// For each nums[i]:
+
+// Compute complement = target - nums[i].
+
+// If complement is already in the map → return [map.get(complement), i].
+
+// Otherwise, store nums[i] in map as {nums[i] : i}.
+
+// If no pair found, return [-1, -1].
+
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 
 public class TwoSum {
     public static int[] twoSum(int[] nums, int target) {
